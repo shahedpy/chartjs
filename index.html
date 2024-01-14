@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<div width="800" height="450">
+    <canvas id="bar-chart"></canvas>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+<script>
+    Chart.register (ChartDataLabels);
+let bar_chart = document.getElementById('bar-chart').getContext('2d');
+let barchart = new Chart(bar_chart, {
+    type: 'bar',
+    data: {
+        labels: ["প্রঃ প্রঃ সওজ", "জোন কার্যালয়", "সার্কেল কার্যালয়", "সড়ক বিভাগসমূূহ", "প্রশিক্ষিণ বিভাগসমূহ"],
+        datasets: [{
+            label: "3111101 - মূূল বেতন (অফিসার)",
+            data: [900, 300, 200, 600, 700],
+            backgroundColor: "#3e95cd",
+            // backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
+            // hoverBorderWidth: 3,
+            // hoverBorderColor: '#000',
+            // borderWidth: 1,
+            // borderColor: '#777',
+        }, {
+            label: "3111110 - ছুটি নগদায়ন বেতন (অফিসার)",
+            data: [800, 700, 400, 900, 600],
+            backgroundColor: "#8e5ea2",
+        }, {
+            label: "3111201 - মূূল বেতন (কর্মচারী)",
+            data: [200, 800, 300, 300, 400],
+            backgroundColor: "#3cba9f",
+        }, {
+            label: "3111209 - ছুটি নগদায়ন বেতন (কর্মচারী)",
+            data: [400, 600, 700, 600, 500],
+            backgroundColor: "#e8c3b9",
+        }, {
+            label: "3111301 - দায়িত্ব ভাতা",
+            data: [600, 500, 300, 200, 300],
+            backgroundColor: "#c45850",
+        }]
+    },
+    options: {
+        plugins: {
+            title: {
+                display: true,
+                text: "বাজেট (লক্ষ টাকায়)"
+            },
+            legend: {
+                // display: false,
+                position: "bottom", // top, bottom, left, right,
+            },
+            datalabels: {
+                display: true,
+                anchor: 'end',
+                align: 'top',
+                font: {
+                    weight: 'bold'
+                }
+            },
+        },
+    }
+});
+</script>
+</body>
+</html>
